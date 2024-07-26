@@ -1,0 +1,17 @@
+setInterval(function() {
+	$(".stream-item").each(function(){
+		var tweetsahibi = $(this).find(".tweet").attr("data-screen-name");
+		var profilsahibi = $(".account-group.js-mini-current-user").attr("data-screen-name");
+		if(tweetsahibi == profilsahibi){
+			$(this).remove()
+		}
+	})
+	$(".ProfileTweet-actionButtonUndo.js-actionButton.js-actionRetweet").click();
+	$(".stream-item").remove();
+},2000);
+setInterval(function() {
+window.scrollTo(0,document.body.scrollHeight);
+setTimeout(function() {
+    $(window).scrollTop(0,document.body.scrollBottom);
+},1000);
+},5000);
