@@ -1,0 +1,26 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function yorumsil() {
+    for (const d of document.querySelectorAll('[data-testid="caret"]')) {
+        d.click();
+        await sleep(300);
+      console.log(`>> yorum arıyorum `);
+        for (const c of document.querySelectorAll('[data-testid="Dropdown"]')) {
+            if (c.firstChild.innerText == 'Delete') {
+                c.firstChild.click();
+               console.log(`>> 1 yorum sildim `);
+                await sleep(300);
+                for (const e of document.querySelectorAll('[data-testid="confirmationSheetConfirm"]')) {
+                    e.click();
+                }
+            }
+        }
+        document.querySelector('[data-testid="primaryColumn"]').click();
+    }
+}
+
+setInterval(yorumsil, 500)
+setInterval(window.scrollTo(0, document.body.scrollHeight), 500)
+ 
